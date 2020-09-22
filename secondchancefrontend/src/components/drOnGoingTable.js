@@ -30,7 +30,7 @@ class printTableHead extends React.Component{
     }
 };
 
-export class ClientOnGoingTable extends React.Component
+export class DrOnGoingTable extends React.Component
 {
     constructor(props) {
         super(props) //since we are extending class Table so we have to use super in order to override Component class constructor
@@ -50,15 +50,15 @@ export class ClientOnGoingTable extends React.Component
         return this.state.cases.map((casestudy, index) => {
             const { id, caseTitle, doctor, category, createDate, status } = casestudy //destructuring
             return (
-                        <tr key={id}>
-                            <td>{id}</td>
-                            <td>{caseTitle}</td>
-                            <td>{doctor}</td>
-                            <td>{category}</td>
-                            <td>{createDate}</td>
-                            <td>{status}</td>
+                <tr key={id}>
+                    <td>{id}</td>
+                    <td>{caseTitle}</td>
+                    <td>{doctor}</td>
+                    <td>{category}</td>
+                    <td>{createDate}</td>
+                    <td>{status}</td>
 
-                       </tr>
+                </tr>
 
 
             )
