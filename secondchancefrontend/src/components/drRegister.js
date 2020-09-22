@@ -1,31 +1,143 @@
 import React from 'react';
 
 
-class DrRegister extends React.Component
-{
+class DrRegister extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            isGoing: true,
-            numberOfGuests: 2
-        };
+            username: '',
+            password: '',
+            repassword: '',
+            firstName: '',
+            lastName: '',
+            npi: '',
+            address: '',
+            city: '',
+            us_state: '',
+            zip: '',
+            picture: ''
+        }
 
-        this.handleInputChange = this.handleInputChange.bind(this);
     }
 
-    handleInputChange(event) {
-        const target = event.target;
-        const value = target.type === 'checkbox' ? target.checked : target.value;
-        const name = target.name;
 
-        this.setState({
-            [name]: value
-        });
+    handleUsernameChange = (event) =>
+    {
+        this.setState(
+            {
+                username: event.target.value
+            })
     }
 
+    handlePasswordChange = (event) =>
+    {
+        this.setState(
+            {
+                password: event.target.value
+            })
+    }
+
+    handleRePasswordChange = (event) =>
+    {
+        this.setState(
+            {
+                repassword: event.target.value
+            })
+    }
+
+    handleFirstNameChange = (event) =>
+    {
+        this.setState(
+            {
+                firstName: event.target.value
+            })
+    }
+
+    handleLastNameChange = (event) =>
+    {
+        this.setState(
+            {
+                lastName: event.target.value
+            })
+    }
+
+    handleNpiChange = (event) =>
+    {
+        this.setState(
+            {
+                npi: event.target.value
+            })
+    }
+
+    handleAddressChange = (event) =>
+    {
+        this.setState(
+            {
+                address: event.target.value
+            })
+    }
+
+    handleCityChange = (event) =>
+    {
+        this.setState(
+            {
+                city: event.target.value
+            })
+    }
+
+    handleStateChange = (event) =>
+    {
+        this.setState(
+            {
+                us_state: event.target.value
+            }
+        )
+    }
+
+    handleZipChange = (event) =>
+    {
+        this.setState(
+            {
+                zip: event.target.value
+            }
+        )
+    }
+
+    handlePictureChange = (event) =>
+    {
+        this.setState(
+            {
+
+            }
+        )
+    }
+
+    handleSubmit = (event) =>
+    {
+
+        alert(`Test Variables
+               --------------
+               Username: ${this.state.username} 
+               Password: ${this.state.password}
+             Repassword: ${this.state.repassword}
+              FirstName: ${this.state.firstName}
+               LastName: ${this.state.lastName}
+                    NPI: ${this.state.npi}
+                Address: ${this.state.address}
+                   City: ${this.state.city}
+               US_State: ${this.state.us_state}
+                    Zip: ${this.state.zip}
+                Picture: ${this.state.picture}`
+             );
+
+
+        event.preventDefault();
+
+
+    }
     render() {
         return (
-            <form action={"App.js"} method={"GET"}>
+            <form action={"Lenny.js"} onSubmit = {this.handleSubmit} method={"POST"}>
                 <label>
                     <u>Registration for Physicians</u>
                     <br />
@@ -37,7 +149,7 @@ class DrRegister extends React.Component
                         name="username"
                         type="text"
                         value={this.state.username}
-                        onChange={this.handleInputChange}
+                        onChange={this.handleUsernameChange}
                         required/>
                 </label>
 
@@ -50,7 +162,7 @@ class DrRegister extends React.Component
                         name="password"
                         type="text"
                         value={this.state.password}
-                        onChange={this.handleInputChange}
+                        onChange={this.handlePasswordChange}
                         required/>
                 </label>
 
@@ -58,32 +170,45 @@ class DrRegister extends React.Component
                 <label>
                     Repeat Password:
                     <input
-                        name="re-password"
+                        name="repassword"
                         type="text"
-                        value={this.state.password}
-                        onChange={this.handleInputChange}
+                        value={this.state.repassword}
+                        onChange={this.handleRePasswordChange}
                         required/>
                 </label>
 
                 <br />
                 <label>
-                    Fullname:
+                    First Name:
                     <input
-                        name="fullname"
+                        name="firstName"
                         type="text"
-                        value={this.state.Fullname}
-                        onChange={this.handleInputChange}
+                        value={this.state.firstName}
+                        onChange={this.handleFirstNameChange}
                         required/>
                 </label>
 
                 <br />
+
+                <label>
+                    Last Name:
+                    <input
+                        name="lastName"
+                        type="text"
+                        value={this.state.lastName}
+                        onChange={this.handleLastNameChange}
+                        required/>
+                </label>
+
+                <br />
+
                 <label>
                     NPI:
                     <input
                         name="npi"
                         type="text"
                         value={this.state.npi}
-                        onChange={this.handleInputChange}
+                        onChange={this.handleNpiChange}
                         required/>
                 </label>
 
@@ -96,7 +221,7 @@ class DrRegister extends React.Component
                         name="address"
                         type="text"
                         value={this.state.address}
-                        onChange={this.handleInputChange}
+                        onChange={this.handleAddressChange}
                         required/>
                 </label>
 
@@ -107,64 +232,64 @@ class DrRegister extends React.Component
                         name="city"
                         type="text"
                         value={this.state.city}
-                        onChange={this.handleInputChange}
+                        onChange={this.handleCityChange}
                         required/>
                 </label>
 
                 <label>
                     State:
-                    <select value={this.state.value} onChange={this.handleChange}>
-                        <option value="AL">Alabama</option>
-                        <option value="AK">Alaska</option>
-                        <option value="AZ">Arizona</option>
-                        <option value="AR">Arkansas</option>
-                        <option value="CA">California</option>
-                        <option value="CO">Colorado</option>
-                        <option value="CT">Connecticut</option>
-                        <option value="DE">Delaware</option>
-                        <option value="DC">District Of Columbia</option>
-                        <option value="FL">Florida</option>
-                        <option value="GA">Georgia</option>
-                        <option value="HI">Hawaii</option>
-                        <option value="ID">Idaho</option>
-                        <option value="IL">Illinois</option>
-                        <option value="IN">Indiana</option>
-                        <option value="IA">Iowa</option>
-                        <option value="KS">Kansas</option>
-                        <option value="KY">Kentucky</option>
-                        <option value="LA">Louisiana</option>
-                        <option value="ME">Maine</option>
-                        <option value="MD">Maryland</option>
-                        <option value="MA">Massachusetts</option>
-                        <option value="MI">Michigan</option>
-                        <option value="MN">Minnesota</option>
-                        <option value="MS">Mississippi</option>
-                        <option value="MO">Missouri</option>
-                        <option value="MT">Montana</option>
-                        <option value="NE">Nebraska</option>
-                        <option value="NV">Nevada</option>
-                        <option value="NH">New Hampshire</option>
-                        <option value="NJ">New Jersey</option>
-                        <option value="NM">New Mexico</option>
-                        <option value="NY">New York</option>
-                        <option value="NC">North Carolina</option>
-                        <option value="ND">North Dakota</option>
-                        <option value="OH">Ohio</option>
-                        <option value="OK">Oklahoma</option>
-                        <option value="OR">Oregon</option>
-                        <option value="PA">Pennsylvania</option>
-                        <option value="RI">Rhode Island</option>
-                        <option value="SC">South Carolina</option>
-                        <option value="SD">South Dakota</option>
-                        <option value="TN">Tennessee</option>
-                        <option value="TX">Texas</option>
-                        <option value="UT">Utah</option>
-                        <option value="VT">Vermont</option>
-                        <option value="VA">Virginia</option>
-                        <option value="WA">Washington</option>
-                        <option value="WV">West Virginia</option>
-                        <option value="WI">Wisconsin</option>
-                        <option value="WY">Wyoming</option>
+                    <select value={this.state.us_state} onChange={this.handleStateChange}>
+                        <option us_state="AL">Alabama</option>
+                        <option us_state="AK">Alaska</option>
+                        <option us_state="AZ">Arizona</option>
+                        <option us_state="AR">Arkansas</option>
+                        <option us_state="CA">California</option>
+                        <option us_state="CO">Colorado</option>
+                        <option us_state="CT">Connecticut</option>
+                        <option us_state="DE">Delaware</option>
+                        <option us_state="DC">District Of Columbia</option>
+                        <option us_state="FL">Florida</option>
+                        <option us_state="GA">Georgia</option>
+                        <option us_state="HI">Hawaii</option>
+                        <option us_state="ID">Idaho</option>
+                        <option us_state="IL">Illinois</option>
+                        <option us_state="IN">Indiana</option>
+                        <option us_state="IA">Iowa</option>
+                        <option us_state="KS">Kansas</option>
+                        <option us_state="KY">Kentucky</option>
+                        <option us_state="LA">Louisiana</option>
+                        <option us_state="ME">Maine</option>
+                        <option us_state="MD">Maryland</option>
+                        <option us_state="MA">Massachusetts</option>
+                        <option us_state="MI">Michigan</option>
+                        <option us_state="MN">Minnesota</option>
+                        <option us_state="MS">Mississippi</option>
+                        <option us_state="MO">Missouri</option>
+                        <option us_state="MT">Montana</option>
+                        <option us_state="NE">Nebraska</option>
+                        <option us_state="NV">Nevada</option>
+                        <option us_state="NH">New Hampshire</option>
+                        <option us_state="NJ">New Jersey</option>
+                        <option us_state="NM">New Mexico</option>
+                        <option us_state="NY">New York</option>
+                        <option us_state="NC">North Carolina</option>
+                        <option us_state="ND">North Dakota</option>
+                        <option us_state="OH">Ohio</option>
+                        <option us_state="OK">Oklahoma</option>
+                        <option us_state="OR">Oregon</option>
+                        <option us_state="PA">Pennsylvania</option>
+                        <option us_state="RI">Rhode Island</option>
+                        <option us_state="SC">South Carolina</option>
+                        <option us_state="SD">South Dakota</option>
+                        <option us_state="TN">Tennessee</option>
+                        <option us_state="TX">Texas</option>
+                        <option us_state="UT">Utah</option>
+                        <option us_state="VT">Vermont</option>
+                        <option us_state="VA">Virginia</option>
+                        <option us_state="WA">Washington</option>
+                        <option us_state="WV">West Virginia</option>
+                        <option us_state="WI">Wisconsin</option>
+                        <option us_state="WY">Wyoming</option>
                     </select>
 
                 </label>
@@ -175,8 +300,7 @@ class DrRegister extends React.Component
                         name="zip"
                         type="numbers"
                         value={this.state.zip}
-                        pattern="^(?(^00000(|-0000))|(\d{5}(|-\d{4})))$"
-                        onChange={this.handleInputChange}
+                        onChange={this.handleZipChange}
                         required/>
                 </label>
 
@@ -184,11 +308,11 @@ class DrRegister extends React.Component
                 <label>
                     Upload Profile Picture:
                     <br />
-                    <input type="file" />
+                    <input type="file" value={this.state.picture} onChange={this.handlePictureChange}/>
                 </label>
                 <br />
                 <br />
-                <input type="submit" value="Submit" />
+                <button type="submit">Register</button>
             </form>
         );
     }
