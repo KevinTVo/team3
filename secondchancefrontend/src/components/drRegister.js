@@ -133,11 +133,10 @@ class DrRegister extends React.Component {
 
         event.preventDefault();
 
-
     }
     render() {
         return (
-            <form action={"Lenny.js"} onSubmit = {this.handleSubmit} method={"POST"}>
+            <form onSubmit = {this.handleSubmit} method={"POST"}>
                 <label>
                     <u>Registration for Physicians</u>
                     <br />
