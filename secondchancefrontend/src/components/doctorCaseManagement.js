@@ -9,6 +9,7 @@ export class DrCaseManagement extends React.Component
   render() {
       return(
           <div>
+              <h2 style={{textAlign: 'center'}}><u>Case Management</u></h2>
               <DrOnGoingTable />
               <DrRequestTable />
               <DrHistoryTable />

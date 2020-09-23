@@ -1,45 +1,20 @@
 import React from 'react';
-import '../css/clientTables.css'
+import '../css/clientCaseManagementPage.css'
 
-class printTableHead extends React.Component{
-    render()
-    {
-        if ((this.props.index % 5) === 0) {
-
-            return (
-                <div>
-                    <thead>
-                    <tr>
-                        <th>ID</th>
-                        <th>Name</th>
-                        <th>Doctor</th>
-                        <th>Category</th>
-                        <th>Created On</th>
-                        <th>Status</th>
-                    </tr>
-                    </thead>
-                </div>
-            );
-        } else {
-            return (<div>
-                <tr>
-                    <script>{this.props.index}</script>
-                </tr>
-            </div>);
-        }
-    }
-};
 
 export class DrOnGoingTable extends React.Component
 {
+
+
     constructor(props) {
         super(props) //since we are extending class Table so we have to use super in order to override Component class constructor
         this.state = { //state is by default an object
+            //ID | Case Title | Status | Category | Created On | Accepted On
             cases: [
-                { id: 1, caseTitle: 'Chest pain and arm hurts', doctor: 'Maria Anders', category: 'Cardiology', createDate: '08/17/20', status: 'pending'},
-                { id: 2, caseTitle: 'runny nose and itchy throat', doctor: 'Christina Berglund.', category: 'Allgery and Immunology', createDate: '08/27/20', status: 'Diagnosing'},
-                { id: 3, caseTitle: 'cried after watching Encino Man', doctor: 'Francisco Chang', category: 'Mental', createDate: '08/27/20', status: 'Diagnosing'},
-                { id: 4, caseTitle: 'path_kev11741_01', doctor: 'Maria Anders', category: 'Pathology', createDate: '08/29/20', status: 'pending'}
+                { id: 1, caseTitle: 'Irregular Heart Beat', case_status: 'Patient Canceled', category: 'Cardiology', createDate: '05/17/20', acceptedOn: '05/20/20', docCancel: 'Cancel'},
+                { id: 2, caseTitle: 'Milk upsets stomach', case_status: 'Completed', category: 'Allergy and Immunology', createDate: '08/27/20', acceptedOn: '08/27/20', docCancel: 'Cancel'},
+                { id: 3, caseTitle: 'Morning depressions', case_status: 'Physician Canceled', category: 'Mental', createDate: '06/27/20', acceptedOn: '06/30/20', docCancel: 'Cancel'},
+                { id: 4, caseTitle: 'path_kev11741_00', case_status: 'Completed', category: 'Pathology', createDate: '07/29/20', acceptedOn: '08/07/20', docCancel: 'Cancel'}
             ]
         }
 
@@ -48,16 +23,16 @@ export class DrOnGoingTable extends React.Component
 
     renderTableData() {
         return this.state.cases.map((casestudy, index) => {
-            const { id, caseTitle, doctor, category, createDate, status } = casestudy //destructuring
+            const { id, caseTitle, case_status, category, createDate, acceptedOn, docCancel } = casestudy //destructuring
             return (
                 <tr key={id}>
                     <td>{id}</td>
                     <td>{caseTitle}</td>
-                    <td>{doctor}</td>
+                    <td>{case_status}</td>
                     <td>{category}</td>
                     <td>{createDate}</td>
-                    <td>{status}</td>
-
+                    <td>{acceptedOn}</td>
+                    <td><u>{docCancel}</u></td>
                 </tr>
 
 
@@ -75,11 +50,12 @@ export class DrOnGoingTable extends React.Component
                     <thead style={{display: 'table-header-group'}}>
                     <tr>
                         <th>ID</th>
-                        <th>Name</th>
-                        <th>Doctor</th>
+                        <th>Case Title</th>
+                        <th>Status</th>
                         <th>Category</th>
                         <th>Created On</th>
-                        <th>Status</th>
+                        <th>Accepted On</th>
+                        <th>Cancel Option</th>
                     </tr>
                     </thead>
                     <tbody>

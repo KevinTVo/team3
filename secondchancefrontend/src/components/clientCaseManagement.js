@@ -8,6 +8,7 @@ export class ClientCaseManagement extends React.Component
   render() {
       return(
           <div>
+              <h2 style={{textAlign: 'center'}}><u>Case Management</u></h2>
               <ClientOnGoingTable />
               <ClientHistoryTable />
           </div>

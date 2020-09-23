@@ -1,34 +1,5 @@
 import React from 'react';
-import '../css/clientTables.css'
-
-class printTableHead extends React.Component{
-    render()
-    {
-        if ((this.props.index % 5) === 0) {
-
-            return (
-                <div>
-                    <thead>
-                    <tr>
-                        <th>ID</th>
-                        <th>Name</th>
-                        <th>Doctor</th>
-                        <th>Category</th>
-                        <th>Created On</th>
-                        <th>Status</th>
-                    </tr>
-                    </thead>
-                </div>
-            );
-        } else {
-            return (<div>
-                <tr>
-                    <script>{this.props.index}</script>
-                </tr>
-            </div>);
-        }
-    }
-};
+import '../css/clientCaseManagementPage.css'
 
 export class ClientOnGoingTable extends React.Component
 {
@@ -36,10 +7,10 @@ export class ClientOnGoingTable extends React.Component
         super(props) //since we are extending class Table so we have to use super in order to override Component class constructor
         this.state = { //state is by default an object
             cases: [
-                { id: 1, caseTitle: 'Chest pain and arm hurts', doctor: 'Maria Anders', category: 'Cardiology', createDate: '08/17/20', status: 'pending'},
+                { id: 1, caseTitle: 'Chest pain and arm hurts', doctor: 'Maria Anders', category: 'Cardiology', createDate: '08/17/20', status: 'Pending'},
                 { id: 2, caseTitle: 'runny nose and itchy throat', doctor: 'Christina Berglund.', category: 'Allgery and Immunology', createDate: '08/27/20', status: 'Diagnosing'},
-                { id: 3, caseTitle: 'cried after watching Encino Man', doctor: 'Francisco Chang', category: 'Mental', createDate: '08/27/20', status: 'Diagnosing'},
-                { id: 4, caseTitle: 'path_kev11741_01', doctor: 'Maria Anders', category: 'Pathology', createDate: '08/29/20', status: 'pending'}
+                { id: 3, caseTitle: 'cried after watching Encino Man', doctor: 'Francisco Chang', category: 'Mental', createDate: '08/27/20', status: 'Pending'},
+                { id: 4, caseTitle: 'path_kev11741_01', doctor: 'Maria Anders', category: 'Pathology', createDate: '08/29/20', status: 'Diagnosing'}
             ]
         }
 
@@ -57,7 +28,7 @@ export class ClientOnGoingTable extends React.Component
                             <td>{category}</td>
                             <td>{createDate}</td>
                             <td>{status}</td>
-
+                            <td><u>Cancel</u></td>
                        </tr>
 
 
@@ -80,6 +51,7 @@ export class ClientOnGoingTable extends React.Component
                         <th>Category</th>
                         <th>Created On</th>
                         <th>Status</th>
+                        <th>Request Refund</th>
                     </tr>
                     </thead>
                     <tbody>

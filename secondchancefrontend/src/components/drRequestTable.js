@@ -1,34 +1,5 @@
 import React from 'react';
-import '../css/clientTables.css'
-
-class printTableHead extends React.Component{
-    render()
-    {
-        if ((this.props.index % 5) === 0) {
-
-            return (
-                <div>
-                    <thead>
-                    <tr>
-                        <th>ID</th>
-                        <th>Name</th>
-                        <th>Doctor</th>
-                        <th>Category</th>
-                        <th>Created On</th>
-                        <th>Status</th>
-                    </tr>
-                    </thead>
-                </div>
-            );
-        } else {
-            return (<div>
-                <tr>
-                    <script>{this.props.index}</script>
-                </tr>
-            </div>);
-        }
-    }
-};
+import '../css/clientCaseManagementPage.css'
 
 export class DrRequestTable extends React.Component
 {
@@ -36,10 +7,10 @@ export class DrRequestTable extends React.Component
         super(props) //since we are extending class Table so we have to use super in order to override Component class constructor
         this.state = { //state is by default an object
             cases: [
-                { id: 1, caseTitle: 'Chest pain and arm hurts', doctor: 'Maria Anders', category: 'Cardiology', createDate: '08/17/20', status: 'pending'},
-                { id: 2, caseTitle: 'runny nose and itchy throat', doctor: 'Christina Berglund.', category: 'Allgery and Immunology', createDate: '08/27/20', status: 'Diagnosing'},
-                { id: 3, caseTitle: 'cried after watching Encino Man', doctor: 'Francisco Chang', category: 'Mental', createDate: '08/27/20', status: 'Diagnosing'},
-                { id: 4, caseTitle: 'path_kev11741_01', doctor: 'Maria Anders', category: 'Pathology', createDate: '08/29/20', status: 'pending'}
+                { id: 1, caseTitle: 'Chest pain and arm hurts',  category: 'Cardiology', createDate: '08/17/20', action: 'Accept / Decline'},
+                { id: 2, caseTitle: 'runny nose and itchy throat',  category: 'Allergy and Immunology', createDate: '08/27/20', action: 'Accept / Decline'},
+                { id: 3, caseTitle: 'cried after watching Encino Man',  category: 'Mental', createDate: '08/27/20', action: 'Accept / Decline'},
+                { id: 4, caseTitle: 'path_kev11741_01', category: 'Pathology', createDate: '08/29/20', action: 'Accept / Decline'}
             ]
         }
 
@@ -48,16 +19,14 @@ export class DrRequestTable extends React.Component
 
     renderTableData() {
         return this.state.cases.map((casestudy, index) => {
-            const { id, caseTitle, doctor, category, createDate, status } = casestudy //destructuring
+            const { id, caseTitle, category, createDate, action } = casestudy //destructuring
             return (
                 <tr key={id}>
                     <td>{id}</td>
                     <td>{caseTitle}</td>
-                    <td>{doctor}</td>
                     <td>{category}</td>
                     <td>{createDate}</td>
-                    <td>{status}</td>
-
+                    <td><u>{action}</u></td>
                 </tr>
 
 
@@ -76,10 +45,9 @@ export class DrRequestTable extends React.Component
                     <tr>
                         <th>ID</th>
                         <th>Name</th>
-                        <th>Doctor</th>
                         <th>Category</th>
                         <th>Created On</th>
-                        <th>Status</th>
+                        <th>Action</th>
                     </tr>
                     </thead>
                     <tbody>

@@ -1,5 +1,5 @@
 import React from 'react';
-import '../css/clientTables.css'
+import '../css/clientCaseManagementPage.css'
 
 class History_printTableHead extends React.Component{
     render()
